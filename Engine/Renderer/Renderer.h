@@ -2,6 +2,9 @@
 #include "Math/Vector2.h"
 #include "Math/Color.h"
 #include "Math/Matrix3x3.h"
+#include <glad/glad.h> 
+#include <SDL.h> 
+
 
 struct SDL_Renderer;
 struct SDL_Window;
@@ -11,9 +14,13 @@ namespace neu
 	class Texture;
 	struct Transform;
 	struct Rect;
+	
 
 	class Renderer
 	{
+
+	
+
 	public:
 		Renderer() = default;
 		~Renderer() = default;
@@ -44,6 +51,7 @@ namespace neu
 		friend class Text;
 		friend class Texture;
 
+
 	private:
 		int m_width = 0;
 		int m_height = 0;
@@ -53,6 +61,7 @@ namespace neu
 		Matrix3x3 m_view;
 		Matrix3x3 m_viewport;
 
+		SDL_GLContext m_context;
 		SDL_Renderer* m_renderer = nullptr;
 		SDL_Window* m_window = nullptr;
 	};
