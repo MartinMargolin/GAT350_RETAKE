@@ -23,11 +23,17 @@ namespace neu
 		bool CreateFromSurface(SDL_Surface* surface, Renderer& renderer);
 
 		bool Load(const std::string& filename, Renderer& renderer);
+		
+		void Bind() { glBindTexture(m_target, m_texture); }
 
 		Vector2 GetSize() const;
 
 		friend class Renderer;
 
+
+	private:
+		void FlipSurface(SDL_Surface* surface);
+	
 	private:
 
 		GLuint m_texture = 0;
