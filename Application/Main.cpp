@@ -46,6 +46,12 @@ float vertices[] = {
 	-0.5f,  0.5f, -0.5f, 1.0f, 1.0f, 1.0f, 0.0f, 1.0f
 };	
 
+const GLuint indices[] =
+{
+	0, 2, 1,
+	0, 3, 2
+};
+
 int main(int argc, char** argv)
 {
 	LOG("Application Started...");
@@ -97,27 +103,9 @@ int main(int argc, char** argv)
 	std::shared_ptr<neu::Shader> fs = neu::g_resources.Get<neu::Shader>("shaders/basic.frag", GL_FRAGMENT_SHADER);
 
 
-	//std::shared_ptr<neu::Program> program = neu::g_resources.Get<neu::Program>("basic_program");
-	//program->AddShader(vs);
-	//program->AddShader(fs	);
-	//program->Link();
-	//program->Use();
-
-	//// create texture
-	//std::shared_ptr<neu::Texture> texture1 = neu::g_resources.Get<neu::Texture>("textures/llama.jpg"); 
-	//std::shared_ptr<neu::Texture> texture2 = neu::g_resources.Get<neu::Texture>("textures/wood.png"); 
-	//texture1->Bind(); ;
-
 	std::shared_ptr<neu::Material> material = neu::g_resources.Get<neu::Material>("materials/box.mtrl");
 	material->Bind();
 
-
-	//glm::mat4 mx{ 1 };
-	//mx = glm::eulerAngleXYZ(0, 0, 3);
-	
-	//material->GetProgram()->SetUniform("scale", std::sin(neu::g_time.time * 3));
-	//material->GetProgram()->SetUniform("transform", mx);
-	//material->GetProgram()->SetUniform("tint", glm::vec3{ 1, 0, 0 });
 
 	// 1 0 0 0
 	// 0 1 0 0 
